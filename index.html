@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardo Bepler - Publicar Aplicações Web</title>
+
+  <style>
+    /* ======== CSS integrado ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f7f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0059b3, #003d80);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #0059b3;
+      margin-bottom: 1rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1 1 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    input, textarea, button {
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #0059b3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #003d80;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ddd;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    #resposta {
+      margin-top: 0.5rem;
+      color: green;
+      font-weight: bold;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .cards {
+        flex-direction: column;
+      }
+      nav a {
+        display: inline-block;
+        margin: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🌐 Leonardo Bepler</h1>
+    <p>Projeto final - Publicar Aplicações Web</p>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#conceitos">Conceitos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>👋 Sobre Mim</h2>
+      <p>
+        Olá! Eu sou <strong>Leonardo Bepler</strong>, estudante da unidade curricular 
+        <strong>Publicar Aplicações Web</strong>.  
+        Este site foi desenvolvido para revisar todos os conceitos estudados durante a disciplina, 
+        como HTML, CSS, JavaScript, Git, GitHub, Vercel, Netlify, HTTPS e DNS.
+      </p>
+    </section>
+
+    <section id="projetos">
+      <h2>💻 Projetos Desenvolvidos</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>🌟 Site Estático</h3>
+          <p>Criação de um site com HTML, CSS e JavaScript, publicado em ambiente web.</p>
+        </div>
+        <div class="card">
+          <h3>🚀 Deploy com Vercel e Netlify</h3>
+          <p>Publicação automatizada conectando o GitHub a plataformas de hospedagem.</p>
+        </div>
+        <div class="card">
+          <h3>🔐 HTTPS e DNS</h3>
+          <p>Configuração de segurança e domínio personalizado com certificado SSL.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="conceitos">
+      <h2>📘 Conceitos Revisados</h2>
+      <ul>
+        <li>✅ Estruturação de páginas com <strong>HTML5</strong></li>
+        <li>✅ Estilização com <strong>CSS3</strong></li>
+        <li>✅ Interatividade com <strong>JavaScript</strong></li>
+        <li>✅ Controle de versão com <strong>Git e GitHub</strong></li>
+        <li>✅ Publicação com <strong>Vercel, Netlify e GitHub Pages</strong></li>
+        <li>✅ Conceitos de <strong>HTTPS</strong> e <strong>DNS</strong></li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>📨 Fale Comigo</h2>
+      <form id="formContato">
+        <input type="text" id="nome" placeholder="Seu nome" required />
+        <input type="email" id="email" placeholder="Seu e-mail" required />
+        <textarea id="mensagem" placeholder="Sua mensagem..." required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="resposta"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - Desenvolvido por <strong>Leonardo Bepler</strong>. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // ======== JS integrado ========
+    document.getElementById("formContato").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value;
+      const resposta = document.getElementById("resposta");
+      resposta.textContent = `Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. 🚀`;
+      this.reset();
+    });
+  </script>
+</body>
+</html>
